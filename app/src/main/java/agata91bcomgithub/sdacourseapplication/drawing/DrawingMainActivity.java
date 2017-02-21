@@ -2,6 +2,7 @@ package agata91bcomgithub.sdacourseapplication.drawing;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -28,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import agata91bcomgithub.sdacourseapplication.R;
+import agata91bcomgithub.sdacourseapplication.gallery.GalleryActivity;
 
 public class DrawingMainActivity extends AppCompatActivity {
 
@@ -91,6 +93,9 @@ public class DrawingMainActivity extends AppCompatActivity {
         } else if
                 (item.getItemId() == R.id.save) {
             saveDrawingToFile();
+        }else if(item.getItemId() == R.id.drawing_gallery){
+            Intent intent = new Intent(this, GalleryActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
