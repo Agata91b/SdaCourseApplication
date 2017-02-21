@@ -1,15 +1,13 @@
 package agata91bcomgithub.sdacourseapplication.gallery;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 import agata91bcomgithub.sdacourseapplication.R;
 import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
@@ -19,17 +17,23 @@ import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
  */
 
 public class GalleryActivity extends AppCompatActivity{
+
+    private ViewPager viewPager;
+    private DrawingPagerAdapter pagerAdapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_activity);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
 
 
         File dir = getExternalFilesDir(DrawingMainActivity.DRAWING_GALLERY_DIR);
         File[] files = dir.listFiles();
-        viewPager.setAdapter(new DrawingPagerAdapter(files));
+        pagerAdapter = new DrawingPagerAdapter(files);
+        viewPager.setAdapter(pagerAdapter);
+
+
 
 //        File file = files[0];
 //        try  {
@@ -38,5 +42,19 @@ public class GalleryActivity extends AppCompatActivity{
 //        } catch (FileNotFoundException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.gallery_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.delete){
+           pagerAdapter.deleteItem(viewPager.getCurrentItem());
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

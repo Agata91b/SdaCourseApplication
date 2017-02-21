@@ -5,7 +5,8 @@
     <item
         android:id="@+id/clear"
         android:title="Clear"
-        android:showAsAction="never" />
+        android:icon="@drawable/ic_clear_image"
+        app:showAsAction="always" />
 
 
 
