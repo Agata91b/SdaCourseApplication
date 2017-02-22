@@ -16,7 +16,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
+import agata91bcomgithub.sdacourseapplication.todolist.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static final String NOTES_KEY = "notes";
@@ -42,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }));
+        TextView todoApplication = (TextView) findViewById(R.id.to_do_list_application);
+        todoApplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity. this, ToDoListActivity.class);
+                startActivity(intent);
+            }
+        });
+
         final EditText notesEditText = (EditText) findViewById(R.id.my_note_edittext);
         notesEditText.setText(readText());
 

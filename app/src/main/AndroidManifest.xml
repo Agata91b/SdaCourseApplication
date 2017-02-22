@@ -23,6 +23,8 @@
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <activity android:name=".gallery.GalleryActivity"
             android:label="Gallery Activity"/>
+        <activity android:name=".todolist.ToDoListActivity"
+            android:label="To do list" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
