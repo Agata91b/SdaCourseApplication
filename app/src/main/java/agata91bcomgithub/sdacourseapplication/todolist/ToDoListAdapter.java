@@ -20,8 +20,10 @@ import agata91bcomgithub.sdacourseapplication.R;
 public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyViewHolder>{
 
     private List<ToDoListItem> items =  new ArrayList();
-
     private OnItemCheckStateChanged checkListener;
+
+
+
     public void setCheckListener(OnItemCheckStateChanged checkListener) {
         this.checkListener = checkListener;
     }
@@ -38,6 +40,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
 
         final  ToDoListItem listItem = items.get(position);
         holder.textView.setText(items.get(position).getText());
+        holder.checkBox.setOnCheckedChangeListener(null);
         holder.checkBox.setChecked(listItem.isChecked());
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -87,6 +90,13 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
         }
 
     }
+    public void deselectAllItems(){
+        for (ToDoListItem item:items) {
+            item.setChecked(false);
+        }
+        notifyDataSetChanged();
+    }
+
      public void deleteAllCheckedItems() {
         List<ToDoListItem> newListItems = new ArrayList<>();
 
@@ -104,4 +114,13 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
          }
 
      }
+
+    public List<ToDoListItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ToDoListItem> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
 }

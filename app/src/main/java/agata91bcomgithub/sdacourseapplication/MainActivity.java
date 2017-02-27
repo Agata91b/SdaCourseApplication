@@ -19,6 +19,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
+import agata91bcomgithub.sdacourseapplication.quiz.QuizActivity;
 import agata91bcomgithub.sdacourseapplication.todolist.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+
         TextView textView = (TextView) findViewById(R.id.drawing_app);
         textView.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -49,10 +51,21 @@ public class MainActivity extends AppCompatActivity {
         todoApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity. this, ToDoListActivity.class);
+                Intent intent = new Intent(MainActivity.this, ToDoListActivity.class);
                 startActivity(intent);
             }
         });
+        TextView quizApplication = (TextView) findViewById(R.id.quiz_application);
+        quizApplication.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         final EditText notesEditText = (EditText) findViewById(R.id.my_note_edittext);
         notesEditText.setText(readText());
@@ -66,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private String readText(){
+    private String readText() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         return sharedPreferences.getString(NOTES_KEY, "");
     }

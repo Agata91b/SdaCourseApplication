@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SdaCourseApplication</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="checked_items"> %d  elementow</string>
+    <plurals name="checked_items_plurals">
+        <item quantity="one">%d element</item>
+        <item quantity="few">%d elementy</item>
+        <item quantity="many">%d elementow</item>
+    </plurals>
+
+</resources>
