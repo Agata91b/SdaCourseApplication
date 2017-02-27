@@ -1,13 +1,13 @@
 {
-  "questionsCount" : 1,
+  "questionsCount" : 2,
   "questions": [
     {
       "id": 1,
-      "text": "Głównym komponentem aplikacji androidwoej nie jest",
+      "question": "Głównym komponentem aplikacji androidowej nie jest ",
       "answers": [
         {
           "isCorrect": true,
-          "text": "AndroidManifest"
+          "text": "Android Manifest"
         },
         {
           "isCorrect": false,
@@ -15,13 +15,37 @@
         },
         {
           "isCorrect": false,
-          "text": "BroadcastReciever"
+          "text": "Broadcast Reciever"
         },
         {
           "isCorrect": false,
           "text": "Service"
         }
       ]
+    },
+
+    {
+      "id": 2,
+      "question": "Wiecej niż jedno zwierzę",
+      "answers": [
+        {
+          "isCorrect": true,
+          "text": "Stado"
+        },
+        {
+          "isCorrect": false,
+          "text": "Owca"
+        },
+        {
+          "isCorrect": false,
+          "text": "Lama"
+        },
+        {
+          "isCorrect": false,
+          "text": "Kanapka"
+        }
+      ]
     }
+
   ]
 }
