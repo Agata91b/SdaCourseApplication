@@ -84,10 +84,8 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
         setContentView(R.layout.to_do_list);
         activityTitle = getSupportActionBar().getTitle().toString();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view);
+        toDoListAdapter = new ToDoListAdapter();
 
-//        if(savedInstanceState == null){
-//            toDoListAdapter = new ToDoListAdapter(new ArrayList<>());
-//        }
 
         recyclerView.setAdapter((toDoListAdapter));
         toDoListAdapter.setCheckListener(this);
@@ -111,16 +109,16 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+    public void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList(ADAPTER_DATA,
                 new ArrayList<>(toDoListAdapter.getItems()));
-        super.onSaveInstanceState(outState, outPersistentState);
+        super.onSaveInstanceState(outState);
     }
 
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        toDoListAdapter
-//                .setItems(savedInstanceState.<ToDoListItem>getParcelableArrayList(ADAPTER_DATA));
-//    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        toDoListAdapter
+                .setItems(savedInstanceState.<ToDoListItem>getParcelableArrayList(ADAPTER_DATA));
+    }
 }
