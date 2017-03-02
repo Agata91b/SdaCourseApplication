@@ -27,6 +27,8 @@
             android:label="To do list" />
         <activity android:name=".quiz.QuizActivity"
             android:label="Quiz" />
+        <activity android:name=".book.BooksActivity"
+            android:label="Books" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
