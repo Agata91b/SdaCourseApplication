@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
+import agata91bcomgithub.sdacourseapplication.fortunetale.FortuneActivity;
 import agata91bcomgithub.sdacourseapplication.quiz.QuizActivity;
 import agata91bcomgithub.sdacourseapplication.todolist.ToDoListActivity;
 import agata91bcomgithub.sdacourseapplication.book.BooksActivity;
@@ -68,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BooksActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        TextView fortuneApplication = (TextView) findViewById(R.id.fortune_application);
+        fortuneApplication.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FortuneActivity.class);
                 startActivity(intent);
 
             }
