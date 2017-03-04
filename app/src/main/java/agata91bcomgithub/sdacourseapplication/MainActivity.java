@@ -19,6 +19,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
+import agata91bcomgithub.sdacourseapplication.mvp.MvpActivity;
 import agata91bcomgithub.sdacourseapplication.quiz.QuizActivity;
 import agata91bcomgithub.sdacourseapplication.todolist.ToDoListActivity;
 
@@ -61,6 +62,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        TextView mvpApplication = (TextView) findViewById(R.id.mvp_application);
+        mvpApplication.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MvpActivity.class);
                 startActivity(intent);
 
             }
