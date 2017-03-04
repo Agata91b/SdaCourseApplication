@@ -123,13 +123,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void run() {
 
-                    if (currentQuestionIndex < quizContainer.getQuestionsCount()) {
+                    if (currentQuestionIndex < quizContainer.getQuestionsCount() -1) {
                         Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
                         intent.putExtra(INDEX_KEY, ++currentQuestionIndex);
                         startActivity(intent);
                     } else {
 
-//                        Toast.makeText(v.getContext(), "Zła odp", Toast.LENGTH_LONG).show();
+                        Toast.makeText(QuizActivity.this, "Quiz ends", Toast.LENGTH_LONG).show();
 
                     }
                 }
