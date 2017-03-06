@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 
 import javax.xml.datatype.Duration;
 
@@ -71,7 +72,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         String json = null;
 
         try {
-            json = loadQuizJson();
+            json = loadQuizJsonFormUrl();
             quizContainer = new Gson().fromJson(json, QuizContainer.class);
 
             TextView textView = (TextView) findViewById(R.id.question_view);
@@ -146,7 +147,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 //        MediaPlayer mediaPlayer = MediaPlayer.create()
 
 
-    private String loadQuizJson() throws Exception {
+    private String loadQuizJsonFormUrl(String url) throws Exception {
+        HttpURLConnection httpURLConnection = new HttpURLConnection
+
+
         StringBuilder buf = new StringBuilder();
         InputStream json = null;
 
