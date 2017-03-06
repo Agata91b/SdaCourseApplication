@@ -5,8 +5,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import agata91bcomgithub.sdacourseapplication.drawing.DrawingMainActivity;
+
+import agata91bcomgithub.sdacourseapplication.mvp.MvpActivity;
+
 import agata91bcomgithub.sdacourseapplication.fortunetale.FortuneActivity;
+
 import agata91bcomgithub.sdacourseapplication.quiz.QuizActivity;
 import agata91bcomgithub.sdacourseapplication.todolist.ToDoListActivity;
 import agata91bcomgithub.sdacourseapplication.book.BooksActivity;
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        TextView booksApplication = (TextView) findViewById(R.id.books_application);
+        TextView booksApplication = (TextView) findViewById(R.id.book_application);
         booksApplication.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -80,6 +85,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, FortuneActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        TextView mvpApplication = (TextView) findViewById(R.id.mvp_application);
+        mvpApplication.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MvpActivity.class);
                 startActivity(intent);
 
             }

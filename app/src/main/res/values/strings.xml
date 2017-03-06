@@ -8,5 +8,9 @@
         <item quantity="one">5%d item</item>
         <item quantity="other">%d items</item>
     </plurals>
+
+    <string name="title_activity_mvp">MvpActivity</string>
+
     <string name="title_activity_fortune">FortuneActivity</string>
+
 </resources>
